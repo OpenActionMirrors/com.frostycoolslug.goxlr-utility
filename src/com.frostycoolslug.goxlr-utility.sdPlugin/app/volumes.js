@@ -315,7 +315,7 @@ changeVolume.onWillDisappear(({action, event, context, device, payload}) => {
     destroyBasicMontior(context);
 
     if (encoderVolumeMonitors[context] !== undefined) {
-        encoderVolumeMonitors.destroy();
+        encoderVolumeMonitors[context].destroy();
         delete encoderVolumeMonitors[context];
     }
 });
