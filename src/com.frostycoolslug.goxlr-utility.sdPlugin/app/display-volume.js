@@ -143,7 +143,7 @@ class VolumeMonitor {
             }
         }
 
-        let svg = `<svg height="100" width="100">`
+        let svg = `<svg xmlns="http://www.w3.org/2000/svg" height="100" width="100">`
         if (!this.hide_name) {
             svg += `<text fill="#fff" font-family="Monospace" font-size="26px" x="50&#37;" y="25&#37;" dominant-baseline="middle" text-anchor="middle">${channel}</text>`
         }            
@@ -152,7 +152,9 @@ class VolumeMonitor {
                 <text fill="#fff" font-family="Monospace" font-size="20px" x="50&#37;" y="90&#37;" dominant-baseline="middle" text-anchor="middle">${muteTarget.toUpperCase()}</text>
                 </svg>`;
                    
-        let image = "data:image/svg+xml;charset=utf8," + svg;
+        let svg_encoded = encodeURIComponent(svg);
+        let image = "data:image/svg+xml;charset=utf8," + svg_encoded;
+
         $SD.setImage(this.context, image);
     }
 }
